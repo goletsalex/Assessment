@@ -2,7 +2,7 @@
 
 namespace UndoAssessment.Models
 {
-    public class Item
+    public class Item: IModel
     {
         public string Id { get; set; }
         public string Text { get; set; }

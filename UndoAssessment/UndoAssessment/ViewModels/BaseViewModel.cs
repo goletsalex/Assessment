@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
-using UndoAssessment.Models;
 using UndoAssessment.Services;
 
 namespace UndoAssessment.ViewModels
@@ -28,11 +25,11 @@ namespace UndoAssessment.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        protected bool SetProperty<T>(ref T backingStore, T value,
+        protected bool SetProperty<T1>(ref T1 backingStore, T1 value,
             [CallerMemberName]string propertyName = "",
             Action onChanged = null)
         {
-            if (EqualityComparer<T>.Default.Equals(backingStore, value))
+            if (EqualityComparer<T1>.Default.Equals(backingStore, value))
                 return false;
 
             backingStore = value;
