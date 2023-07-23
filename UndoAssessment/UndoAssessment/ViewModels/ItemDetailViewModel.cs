@@ -39,11 +39,11 @@ namespace UndoAssessment.ViewModels
             }
         }        
 
-        public async void LoadItemId(string itemId)
+        public void LoadItemId(string itemId)
         {
             try
             {
-                var item = await DataStore.GetItemAsync(itemId);
+                var item = DataStore.GetItem(itemId);
                 Id = item.Id;
                 Text = item.Text;
                 Description = item.Description;

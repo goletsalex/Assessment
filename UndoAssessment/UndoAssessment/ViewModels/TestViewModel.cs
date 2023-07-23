@@ -33,7 +33,7 @@ namespace UndoAssessment.ViewModels
         {
             Title = "Test";
             Users = new ObservableCollection<User>();
-            LoadUsersCommand = new Command(async () => await ExecuteLoadUsersCommand());
+            LoadUsersCommand = new Command(() => ExecuteLoadUsersCommand());
 
             AddUserCommand = new Command(OnAddUser);
 
@@ -42,14 +42,14 @@ namespace UndoAssessment.ViewModels
             FailEndpointCommand = new Command(async () => await OnInvokeFailEndpoint());
         }
 
-        async Task ExecuteLoadUsersCommand()
+        void ExecuteLoadUsersCommand()
         {
             IsBusy = true;
 
             try
             {
                 Users.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = DataStore.GetItems();
                 foreach (var item in items)
                 {
                     Users.Add(item);

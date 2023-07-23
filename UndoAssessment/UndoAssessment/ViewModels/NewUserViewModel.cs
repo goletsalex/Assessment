@@ -54,7 +54,7 @@ namespace UndoAssessment.ViewModels
                 Age = byte.Parse(Age)
             };
             
-            await DataStore.AddItemAsync(newUser);
+            DataStore.AddItem(newUser);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");

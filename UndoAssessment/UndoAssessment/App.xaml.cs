@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using UndoAssessment.Services;
 using UndoAssessment.Views;
+using UndoAssessment.Models;
 
 namespace UndoAssessment
 {
@@ -13,8 +14,8 @@ namespace UndoAssessment
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            DependencyService.Register<MockUsersDataStore>();
+            DependencyService.Register<IDataStore<Item>, MockDataStore>();
+            DependencyService.Register<IDataStore<User>, MockUsersDataStore>();
             DependencyService.Register<ApiService>();
             DependencyService.Register<MessageService>();
             MainPage = new AppShell();
